@@ -1,0 +1,34 @@
+/*File: edMunds.css
+//Author: Patrick Seet
+Demo Project for Hack Reactor*/
+
+h1 {
+
+	font-size:20px;
+}
+
+h2 {
+
+	font-size:15px;
+
+}
+
+.inputArea {
+	background-color: #CCC;
+	width: 600px;
+	margin: 0 auto;
+}
+
+#vinTable {
+	width: 600px;
+	margin: 0 auto;
+	margin-top: 5px;
+	background-color: #D8F781;
+}
+
+#recallTable {
+	width: 600px;
+	margin: 0 auto;
+	margin-top: 5px;
+	background-color: #CCE6FF;
+}
