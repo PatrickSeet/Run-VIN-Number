@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--
+File: PatSeet_Edmunds_Demo.html
+Author: Patrick Seet
+Description: Multiple AJAX calls to Edumnds.com API to retrieve detail vehicle and recall information 
+-->
+<html>
+	<head>
+	<script language="javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+	<script language="javascript" src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+	<script type="text/javascript" src="vin.js"></script>
+	<script type="text/javascript" src="recall.js"></script>
+	<script type="text/javascript" src="review.js"></script>
+	<link rel="stylesheet" type="text/css" href="edMunds.css">
+<script>
+
+//use fetchVIN with VIN, server respond with vehicle info along with Edmund's car ID
+//build endpoints with car ID to retrieve recall and review info
+var Car = new Object();
+var apiKey = "97dray8gjd4ufbstaue6k94q";
+
+//making sure the VIN is 17 digits
+function checkVINInput(){
+
+	var userInput = $('#vin').length;
+
+		var uIn = $('#vin').val().length;
+		if(uIn != 17) {
+			alert("Please make sure VIN is 17 digits");
+			location.reload();
+		}
+		else {
+				//send VIN to retrieve car info along with Car ID for recall info
+				sendVIN();
+
+				//delay half a second making sure all Car object properties and URLs are set
+				setTimeout(function(){
+					getRecall();
+				}, 500);
+		}
+}
+
+</script>
+<title>Car Info</title>
+</head>
+<body>
+<div class="inputArea">
+		<form id="inputBoxes">
+		<h1>Get a full vehicle and recall information by entering a 17 digit Vehicle Identification Number:</h1>
+		<h2>Example: [1FAFP34N25W264389] [WDBNG70J82A283522] [WBSWD93518PY39340] [WBABM5343YJN91517]</h2>		
+		Enter VIN: <input type="text" id="vin" size="23"><button type="button" id="VINbutton" onclick="checkVINInput()">Go</button><br>
+		</form>
+</div>
+<div class="outputArea">
+	<table id="vinTable"></table>
+	<table id="recallTable"></div>
+</div>
+</body>
+</html>
