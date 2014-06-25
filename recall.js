@@ -1,6 +1,6 @@
 //File: recall.js
 //Author: Patrick Seet
-//Demo Project for Hack Reactor
+//Demo Project
 
 //Fetch recall information using Year ID 
 function parseRecall(JSONObj){
